@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <title>Student Form</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Registration</h2>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" maxlength="150" required>
+            </div>
+            <div class="form-field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="form-field">
+                <label for="password1">Confirm Password:</label>
+                <input type="password" name="password1" id="password1" required>
+            </div>
+            <div class="form-field">
+                <label for="Email">Email:</label>
+                <input type="email" name="Email" id="Email">
+            </div>
+
+            <h3>Student Details</h3>
+            <div class="form-field">
+                <label for="id_roll_no">Roll No:</label>
+                <input type="text" name="roll_no" id="id_roll_no" maxlength="10" required>
+            </div>
+            <div class="form-field">
+                <label for="id_course">Course:</label>
+                <input type="text" name="course" id="id_course" maxlength="100" required>
+            </div>
+            <div class="form-field">
+                <label for="id_semester">Semester:</label>
+                <input type="number" name="semester" id="id_semester" min="1" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
