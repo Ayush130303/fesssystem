@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #1e1e1e;
+    margin: 3rem auto;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    width: 90%;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.slides {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background-color: #2a2a2a;
+}
+
+.slideinfo {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f0f0f0;
+    background-color: #1e1e1e;;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1rem auto;
+    width: fit-content;
+    /* text-decoration: underline; */
+    text-decoration-style: wavy;
+}
+
+.slide img {
+    width: 100%;
+    height: 50vh;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.02);
+}
+
+.annouc {
+    flex: 1;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    overflow: hidden;
+}
+
+.annouc h3.slideinfo {
+    padding: 1rem;
+    background-color: #1e1e1e;
+    color: #00bfff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.annouc_items_container {
+    overflow-y: auto;
+    padding: 1rem;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #2a2a2a;
+}
+
+.annouc_items_container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.annouc_items_container::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+.annouc_items_container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.annouc_items {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.annouc_items:hover {
+    background-color: #333;
+}
+
+.annouce_title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #00bfff;
+}
+
+.annouc_det {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+
+.content {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .slides, .annouc {
+        width: 100%;
+    }
+
+    .slideinfo {
+        font-size: 1.5rem;
+    }
+
+    .annouce_title {
+        font-size: 1rem;
+    }
+
+    .annouc_det {
+        font-size: 0.9rem;
+    }
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.box {
+  background-color:  #383838;
+  color: #e0e0e0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.feat_title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #0077cc;
+}
+
+.feat_desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #e0e0e0
+}
+
+.links {
+  background-color:#ffcc00;;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.links:hover {
+  background-color: #a3840a;;
+}
+
+@media (max-width: 786px) {
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  .box {
+    padding: 15px;
+  }
+
+  .feat_title {
+    font-size: 1rem;
+  }
+
+  .feat_desc {
+    font-size: 0.9rem;
+  }
+
+  .links {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+

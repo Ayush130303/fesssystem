@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from .models import Students
 from api.models import User
-
+from django.contrib.auth import logout
 def register(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -39,7 +39,7 @@ def register(request):
             semester=semester
         )
 
-        return redirect(login)
+        return redirect("login")
 
     return render(request, "register.html")
 
@@ -65,9 +65,16 @@ def login_view(request):
         #     return redirect("student_dashboard") 
         # else:
         #     return redirect("home")
-        return render(request,"stu_dashboard.html")
+        return redirect("dash")
 
     return render(request, "login.html")
 
-def stu_dash(request):
-    return render(request,"stu_dashboard.html")
+def dash(request):
+    return render(request,"dashboard.html")
+
+def user_logout(request):
+    logout(request)
+    return redirect('dash')
+
+def feestru(request):
+    return render(request,"feestruc.html")

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Combined Fee Structure</title>
+  <link rel="stylesheet" href="{% static 'struc.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+  <div class="container">
+    <h1>📚 Combined Fee Structure Overview</h1>
+    <section>
+      <h2>🏫 NIT Sikkim B.Tech Fee Structure (2015–19 Batch)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Fee Component</th>
+            <th>General/OBC</th>
+            <th>SC/ST</th>
+            <th>SC/ST (Income &lt; ₹1 Lakh)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tuition Fee (per semester)</td><td>₹35,000</td><td>₹0</td><td>₹0</td></tr>
+          <tr><td>Admission Fee (1st Sem only)</td><td colspan="3">₹500</td></tr>
+          <tr><td>Identity Card Fee (1st Sem only)</td><td colspan="3">₹100</td></tr>
+          <tr><td>Student Activity Fee</td><td colspan="3">₹1,000</td></tr>
+          <tr><td>Institute Development Fee</td><td colspan="3">₹2,500</td></tr>
+          <tr><td>Library Fee</td><td colspan="3">₹1,000</td></tr>
+          <tr><td>Computer Fee</td><td colspan="3">₹1,000</td></tr>
+          <tr><td>Examination Fee</td><td colspan="3">₹1,000</td></tr>
+          <tr><td>Registration Fee</td><td colspan="3">₹500</td></tr>
+          <tr><td>Medical Fee</td><td colspan="3">₹500</td></tr>
+          <tr><td>Insurance Charges (1st Sem only)</td><td colspan="3">₹1,000</td></tr>
+          <tr><td>Hostel Admission Fee (1st Sem only)</td><td colspan="3">₹500</td></tr>
+          <tr><td>Hostel Rent</td><td colspan="3">₹2,500</td></tr>
+          <tr><td>Electricity & Water Charges</td><td colspan="3">₹2,500</td></tr>
+          <tr><td>Hostel Development Fee</td><td colspan="3">₹3,000</td></tr>
+          <tr><td>Hostel Establishment Charges</td><td colspan="3">₹3,000</td></tr>
+          <tr><td>Mess Charges (Advance)</td><td colspan="3">₹12,000</td></tr>
+          <tr><td><strong>Total (1st Sem)</strong></td><td>₹78,100</td><td>₹43,100</td><td>₹43,100</td></tr>
+          <tr><td><strong>Total (2nd–8th Sem)</strong></td><td>₹74,000</td><td>₹39,000</td><td>₹39,000</td></tr>
+        </tbody>
+      </table>
+      <p class="note">* Tuition fee is exempted for SC/ST students.<br>* Mess charges are subject to change.<br>* Approved by BOG in 16th meeting on 22nd Dec, 2015.</p>
+    </section>
+
+    <!-- Section 2: Institutional Fee Breakdown -->
+    <section>
+      <h2>🏛️ Institutional Fee Breakdown</h2>
+      <h3>📝 One-Time Charges (At Admission)</h3>
+      <table>
+        <thead><tr><th>Component</th><th>Amount (₹)</th></tr></thead>
+        <tbody>
+          <tr><td>Admission Fee</td><td>585.00</td></tr>
+          <tr><td>Identity Card</td><td>30.00</td></tr>
+          <tr><td>Student Welfare Fund</td><td>200.00</td></tr>
+          <tr><td>Alumni Fee</td><td>500.00</td></tr>
+          <tr><td>Convocation Fee</td><td>500.00</td></tr>
+          <tr><td>Caution Deposit (Refundable)</td><td>9,112.00</td></tr>
+          <tr><td><strong>Sub Total - B</strong></td><td><strong>10,927.00</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h3>💰 Total Institute Fee</h3>
+      <table>
+        <thead><tr><th>Category</th><th>Amount (₹)</th></tr></thead>
+        <tbody>
+          <tr><td>Full Fee Persons</td><td>81,872.00</td></tr>
+          <tr><td>3rd Remission</td><td>40,206.00</td></tr>
+          <tr><td>Full Fee Waivers</td><td>10,927.00</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🏠 Hostel Fee Per Semester</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Fee Category</th>
+            <th>1st SEM</th><th>2nd SEM</th><th>3rd SEM</th><th>4th SEM</th>
+            <th>5th SEM</th><th>6th SEM</th><th>7th SEM</th><th>8th SEM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mess Caution Deposit (Refundable)</td><td>500.00</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+          <tr><td>Hostel Caution Deposit (Refundable)</td><td>2,000.00</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+          <tr><td>Hostel Fee (Rent, Electricity, Cleaning)</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td><td>7,500.00</td></tr>
+          <tr><td>Maintenance Charge</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td><td>7,000.00</td></tr>
+          <tr><td><strong>Sub Total - C</strong></td><td><strong>17,000.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td><td><strong>14,500.00</strong></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  {% include 'footer.html' %}
+</body>
+</html>

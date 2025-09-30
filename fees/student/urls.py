@@ -6,5 +6,7 @@ urlpatterns = [
     path('',views.login_view,name='login'),
     path('register/',views.register,name='register'),
     # path('admin/',include('admin.urls')),
-    path('dashboard/',views.stu_dash,name="stu_dash"),
+    path('dashboard/',views.dash,name="dash"),
+    path('logout/',views.user_logout,name="logout"),
+    path('feestructure/',views.feestru,name='feestru'),
 ]
