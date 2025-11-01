@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
-from .models import Students
-from api.models import User
+from api.models import *
 from django.contrib.auth import logout
 def register(request):
     if request.method == "POST":
@@ -78,3 +77,39 @@ def user_logout(request):
 
 def feestru(request):
     return render(request,"feestruc.html")
+
+from django.shortcuts import render, get_object_or_404
+def updateprof(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    student = get_object_or_404(Students, user=user)
+
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        password1 = request.POST.get("password1")
+        email = request.POST.get("email")
+        course = request.POST.get("course")
+        semester = request.POST.get("semester")
+        profile = request.FILES.get("profile")
+
+        if password and password1:
+            if password != password1:
+                return render(request, "update.html", {"error": "Passwords do not match!", "user": user, "student": student})
+            user.password = make_password(password)
+
+        user.username = username
+        user.email = email
+        user.save()
+
+        student.course = course
+        student.semester = semester
+        if profile:
+            student.profile = profile
+        student.save()
+
+        return redirect("dash")
+
+    return render(request, "update.html", {"user": user, "student": student})
+
+
+

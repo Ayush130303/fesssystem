@@ -9,4 +9,5 @@ urlpatterns = [
     path('dashboard/',views.dash,name="dash"),
     path('logout/',views.user_logout,name="logout"),
     path('feestructure/',views.feestru,name='feestru'),
+    path('update-prof/<int:pk>/',views.updateprof,name='update-prof'),
 ]

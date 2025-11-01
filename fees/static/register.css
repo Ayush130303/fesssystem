@@ -1,38 +1,36 @@
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    background: #121212;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: #f5f5f5;
 }
 
-/* Container */
 .form-container {
-    background: #fff;
+    background: #1e1e1e;
     padding: 25px 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     width: 400px;
 }
 
-/* Heading */
 .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
-}
-
-/* Error message */
-p[style*="color:red"] {
-    text-align: center;
+    color: #ffcc00;
     font-weight: bold;
 }
 
-/* Form fields */
+p[style*="color:red"] {
+    text-align: center;
+    font-weight: bold;
+    color: #ff5555;
+}
+
 .form-field {
     margin-bottom: 15px;
 }
@@ -41,39 +39,71 @@ label {
     display: block;
     font-weight: 600;
     margin-bottom: 6px;
-    color: #555;
+    color: #f5f5f5;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 8px;
     font-size: 14px;
     outline: none;
+    background: #292929;
+    color: #f5f5f5;
     transition: 0.3s;
 }
 
-/* Focus effect */
 input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+    border-color: #ffcc00;
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.5);
 }
 
-/* Submit button */
 button {
     width: 100%;
     padding: 12px;
-    background: #007bff;
-    color: white;
+    background: #ffcc00;
+    color: #121212;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #e6b800;
+}
+
+.profile-preview {
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffcc00;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup-link a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 450px) {
+    .form-container {
+        width: 90%;
+    }
 }

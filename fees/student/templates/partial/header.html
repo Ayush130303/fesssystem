@@ -6,7 +6,7 @@
     <a href="{% url 'dash' %}"><h2 class="logoname">Billpe</h2></a>
     <div class="headerr">
         <div class="side">
-            <h3 class="User_hi"> {{ user.username }}</h3>
+            <h3 class="User_hi"> HII! {{ user.username }}</h3>
             <button class="sidebar" id="sidebar" onclick="openbar()">
                 <i class="fas fa-bars"></i>
             </button>
@@ -17,14 +17,14 @@
         <button class="closebutt" onclick="closebar()">
             <i class="fas fa-times"></i>
         </button>
-        <div class="userprof"><img src="" alt="Userprofile"></div>
+        <div class="userprof"><img src="{{ student.profile.url }}" alt="Userprofile"></div>
         <div class="navitems">
             <ul>
                 <li><a href=""><i class="fas fa-history"></i> Check history</a></li>
                 <li><a href="{% url 'feestru' %}"><i class="fas fa-file-invoice-dollar"></i> Check fee structures</a></li>
                 <li><a href=""><i class="fas fa-bullhorn"></i> Check Announcements</a></li>
                 <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                <li><a href=""><i class="fas fa-user-edit"></i> Update profile</a></li>
+                <li><a href="{% url 'update-prof' request.user.id %}"><i class="fas fa-user-edit"></i> Update profile</a></li>
             </ul>
         </div>
     </div>

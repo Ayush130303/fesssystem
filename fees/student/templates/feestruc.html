@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="{% static 'struc.css' %}">
 </head>
 <body>
-    {% include 'header.html' %}
+   {% include './partial/header.html' %}
   <div class="container">
-    <h1>📚 Combined Fee Structure Overview</h1>
+    <h1>Combined Fee Structure Overview</h1>
     <section>
-      <h2>🏫 NIT Sikkim B.Tech Fee Structure (2015–19 Batch)</h2>
+      <h2>NIT Sikkim B.Tech Fee Structure (2015–19 Batch)</h2>
       <table>
         <thead>
           <tr>
@@ -48,8 +48,8 @@
 
     <!-- Section 2: Institutional Fee Breakdown -->
     <section>
-      <h2>🏛️ Institutional Fee Breakdown</h2>
-      <h3>📝 One-Time Charges (At Admission)</h3>
+      <h2>Institutional Fee Breakdown</h2>
+      <h3>One-Time Charges (At Admission)</h3>
       <table>
         <thead><tr><th>Component</th><th>Amount (₹)</th></tr></thead>
         <tbody>
@@ -63,7 +63,7 @@
         </tbody>
       </table>
 
-      <h3>💰 Total Institute Fee</h3>
+      <h3>Total Institute Fee</h3>
       <table>
         <thead><tr><th>Category</th><th>Amount (₹)</th></tr></thead>
         <tbody>
@@ -73,7 +73,7 @@
         </tbody>
       </table>
 
-      <h3>🏠 Hostel Fee Per Semester</h3>
+      <h3>Hostel Fee Per Semester</h3>
       <table>
         <thead>
           <tr>
@@ -92,6 +92,6 @@
       </table>
     </section>
   </div>
-  {% include 'footer.html' %}
+  {% include './partial/footer.html' %}
 </body>
 </html>
