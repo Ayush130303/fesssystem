@@ -1,11 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard | NIT Sikkim</title>
+    <link rel="stylesheet" href="{% static 'admin.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papmO9mYJcJHqDtnZk0k2ldn1E4Eel9nE75VZR9yyI3l5vZgq7m+X9IuT7nERZr/U4h7X/7b5ExJ+zgY+3n2Yg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    {% inlcude "./student/templates/"%}
+
+<header class="header">
+    <img src="{% static 'logo.png' %}" alt="College Logo" class="logo">
+    <h1>Admin Dashboard</h1>
+    <a href="{% url 'ad_logout' %}" class="back-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</header>
+
+<div class="container">
+
+    <div class="card form-card">
+        <h2>Create Announcement</h2>
+
+        <form method="POST" action="{% url 'view-announcements' %}">
+            {% csrf_token %}
+            <label>Title</label>
+            <input type="text" name="title" class="input-field" required>
+
+            <label>Message</label>
+            <textarea name="message" class="textarea-field" rows="8" required></textarea>
+
+            <button class="submit-btn"><i class="fas fa-paper-plane"></i> Post Announcement</button>
+        </form>
+    </div>
+
+    <div class="card link-card">
+        <h2>Quick Links</h2>
+        <ul class="quick-links">
+            <li><a href="{% url 'view-announcements' %}"><i class="fas fa-bullhorn"></i> View All Announcements</a></li>
+            <li><a href="{% url 'fee-structure' %}"><i class="fas fa-coins"></i> Set Fee Structure</a></li>
+            <li><a href="{% url 'fee-submissions' %}"><i class="fas fa-file-invoice-dollar"></i> View Fee Submissions</a></li>
+            <li><a href="{% url 'view-students' %}"><i class="fas fa-users"></i> View All Students</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; NIT Sikkim All Rights Reserved </p>
+    <p>Desigend by KMR--<a href="https://www.nitsikkim.ac.in" target="_blank">NIT official url</a></p>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fee Structure | Admin</title>
+    <link rel="stylesheet" href="{% static 'ad_pages.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'logo.png' %}" alt="College Logo" class="logo">
+        <h1>Fee Structure</h1>
+        <a href="{% url 'dash' %}" class="back-btn">Back to Dashboard</a>
+    </header>
+
+    <main class="form-container">
+        <form method="POST" action="{% url 'fee-structure' %}">
+            {% csrf_token %}
+            <label>Category:</label>
+            <input type="text" name="fee_id" placeholder="Enter Category" required>
+
+            <label>Course:</label>
+            <input type="text" name="course" placeholder="Enter Course" required>
+
+            <label>Semester:</label>
+            <input type="number" name="semester" placeholder="Enter Semester" required>
+
+            <label>Amount:</label>
+            <input type="number" name="amount" placeholder="Enter Fee Amount" required>
+
+            <button type="submit">Set Fee</button>
+        </form>
+
+        <h2>Existing Fee Structures</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Course</th>
+                    <th>Semester</th>
+                    <th>Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fee in fees %}
+                <tr>
+                    <td>{{ fee.fee_id }}</td>
+                    <td>{{ fee.course }}</td>
+                    <td>{{ fee.semester }}</td>
+                    <td>{{ fee.amount }}</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No fee structures found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

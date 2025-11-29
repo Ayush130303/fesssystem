@@ -10,4 +10,7 @@ urlpatterns = [
     path('logout/',views.user_logout,name="logout"),
     path('feestructure/',views.feestru,name='feestru'),
     path('update-prof/<int:pk>/',views.updateprof,name='update-prof'),
+    path('payment/<int:pk>/',views.payment,name='payment'),
+    path('gateway/',views.paygateway,name='gateway'),
+    path('paystatus/',views.paystatus,name='paystatus'),
 ]

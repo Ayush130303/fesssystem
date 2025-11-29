@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i+u5s=l=#tm=k%z54(oy97javh+hu(c&lpr(6sz%8*v_7f0wt!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+API_BASE_URL = "http://localhost:8000/api"
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'admins',
     'student',
     'api',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,22 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'api.User'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# Change to your email + app password
+EMAIL_HOST_USER = "kayush5775@gmail.com"
+EMAIL_HOST_PASSWORD = "rfjd yxgy odzz flso"
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

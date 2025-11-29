@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'dash.css' %}">
+    <link rel="stylesheet" href="{% static 'stu_dash.css' %}">
     <title>Dashboard</title>
 </head>
 <body>
@@ -12,32 +12,20 @@
     <div class="container">
         <div class="hero">
             <div class="slides">
-                <div class="slideinfo">NIT SIKKIM</div>
+                <div class="slideinfo">National Institute of Technology SIKKIM</div>
                 <div class="slide"><img src="{% static 'images/slide3.jpg' %}" alt="Slide 1"></div>
             </div>
             <div class="annouc">
                 <h3 class="slideinfo">NEW ANNOUNCEMENT</h3>
                 <div class="annouc_items_container">
-                    <div class="annouc_items">
-                        <div class="annouce_title">Orientation Schedule</div>
-                        <p class="annouc_det">The orientation for first-year students will be held on October 5th in the main auditorium.</p>
-                    </div>
-                    <div class="annouc_items">
-                        <div class="annouce_title">Library Hours Extended</div>
-                        <p class="annouc_det">The central library will now remain open until 10 PM on weekdays starting this week.</p>
-                    </div>
-                    <div class="annouc_items">
-                        <div class="annouce_title">Coding Hackathon</div>
-                        <p class="annouc_det">Join the inter-college coding hackathon on October 12th. Register by October 8th via the student portal.</p>
-                    </div>
-                    <div class="annouc_items">
-                        <div class="annouce_title">Coding Hackathon</div>
-                        <p class="annouc_det">Join the inter-college coding hackathon on October 12th. Register by October 8th via the student portal.</p>
-                    </div>
-                    <div class="annouc_items">
-                        <div class="annouce_title">Coding Hackathon</div>
-                        <p class="annouc_det">Join the inter-college coding hackathon on October 12th. Register by October 8th via the student portal.</p>
-                    </div>
+                    {% for announcement in announcements %}
+                        <div class="annouc_items">
+                            <div class="annouce_title">{{ announcement.title }}</div>
+                            <p class="annouc_det">{{ announcement.body }}</p>
+                        </div>
+                    {% empty %}
+                        <p>No announcements available at the moment.</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -45,33 +33,28 @@
             <h2 class="contetinfo">Features</h2>
             <div class="grid3">
                 <div class="box">
-                    <div class="feat_title">Check ur history</div>
-                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates 
-                        eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
+                    <div class="feat_title">Pay-Bills</div>
+                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
+                    <button class="links"><a href="{% url 'payment' request.user.id %}"> links</a></button>
+                </div>
+                <div class="box">
+                    <div class="feat_title">Payment-history</div>
+                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
                     <button class="links">links</button>
                 </div>
                 <div class="box">
-                    <div class="feat_title">Check ur history</div>
-                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates 
-                        eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
+                    <div class="feat_title">Upload documents</div>
+                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
                     <button class="links">links</button>
                 </div>
                 <div class="box">
-                    <div class="feat_title">Check ur history</div>
-                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates 
-                        eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
+                    <div class="feat_title">Mail-warden</div>
+                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
                     <button class="links">links</button>
                 </div>
                 <div class="box">
-                    <div class="feat_title">Check ur history</div>
-                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates 
-                        eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
-                    <button class="links">links</button>
-                </div>
-                <div class="box">
-                    <div class="feat_title">Check ur history</div>
-                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates 
-                        eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
+                    <div class="feat_title">Submit gatepass</div>
+                    <div class="feat_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus non accusamus quia id eum, incidunt nihil voluptates eius. Esse exercitationem in quod ad deserunt magni provident asperiores labore assumenda fuga!</div>
                     <button class="links">links</button>
                 </div>
             </div>

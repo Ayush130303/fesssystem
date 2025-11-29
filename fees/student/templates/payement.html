@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Fee Status Form</title>
+  <link rel="stylesheet" href="{% static 'payment.css' %}">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Student Fee Status Form</h2>
+    <form action="{% url 'gateway' %}" method="POST">
+        {% csrf_token %}
+      <label for="rollno">Roll Number:</label>
+      <input type="text" id="rollno" name="rollno"  value="{{ student.roll_no }}" readonly>
+
+      <label>Hostel Resident:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="hostel" value="Yes" required> Yes</label>
+        <label><input type="radio" name="hostel" value="No"> No</label>
+      </div>
+
+      <label for="feeCategory">Fee Category:</label>
+      <select id="feeCategory" name="feeCategory" required>
+        <option value="">--Select--</option>
+        <option value="Full_Fee_Waivers">Full_Fee_Waivers</option>
+        <option value="3rd_Remission">3rd_Remission</option>
+        <option value="Full_Fee">Full_Fee</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+{% include './partial/footer.html' %}
+</body>
+</html>

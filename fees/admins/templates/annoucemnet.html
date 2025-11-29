@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Announcements | Admin</title>
+    <link rel="stylesheet" href="{% static 'ad_pages.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'logo.png' %}" alt="College Logo" class="logo">
+        <h1>All Announcements</h1>
+        <a href="{% url 'dash' %}" class="back-btn">Back to Dashboard</a>
+    </header>
+
+    <main class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>Created By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ann in announcements %}
+                <tr>
+                    <td>{{ ann.id }}</td>
+                    <td>{{ ann.title }}</td>
+                    <td>{{ ann.body }}</td>
+                    <td>{{ ann.user.username }}</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No announcements found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

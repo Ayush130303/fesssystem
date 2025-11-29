@@ -3,7 +3,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <header class="header">
-    <a href="{% url 'dash' %}"><h2 class="logoname">Billpe</h2></a>
+    <div>
+        <img src="{% static 'logo.png' %}" alt="College Logo" class="logo" height="50px" width="50px">
+    </div>
+    <a href="{% url 'dash' %}"><h2 class="logoname">Student Dashboard</h2></a>
     <div class="headerr">
         <div class="side">
             <h3 class="User_hi"> HII! {{ user.username }}</h3>

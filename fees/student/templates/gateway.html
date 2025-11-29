@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Payment Gateway</title>
+  <link rel="stylesheet" href="{% static 'gateway.css' %}">
+  <style>
+    .payment-method-form { display: none; }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2>Student Payment Gateway</h2>
+  <form action="{% url 'paystatus' %}" method="POST" onsubmit="return validateForm()">
+    {% csrf_token %}
+
+    <label for="amount">Total Amount to be Paid:</label>
+    <input type="text" id="amount" name="amount" value="{{ amount }}" readonly>
+
+    <label for="semester">Semester:</label>
+    <input type="text" id="semester" name="semester" value="{{ student.semester }}" readonly>
+
+    <label for="mode">Mode of Payment:</label>
+    <select id="mode" name="mode" onchange="showPaymentForm()">
+      <option value="">--Select--</option>
+      <option value="upi">UPI</option>
+      <option value="card">Credit Card</option>
+      <option value="netbanking">Net Banking</option>
+    </select>
+
+    <div id="upiForm" class="payment-method-form">
+      <label for="upiId">Enter UPI ID:</label>
+      <input type="text" id="upiId" name="upiId" placeholder="example@upi">
+    </div>
+
+    <div id="cardForm" class="payment-method-form">
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" maxlength="16" placeholder="1234 5678 9012 3456">
+
+      <label for="expiry">Expiry Date:</label>
+      <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+
+      <label for="cvv">CVV:</label>
+      <input type="password" id="cvv" name="cvv" maxlength="3">
+    </div>
+
+    <div id="netbankingForm" class="payment-method-form">
+      <label for="bank">Select Bank:</label>
+      <select id="bank" name="bank">
+        <option value="">--Select Bank--</option>
+        <option value="SBI">State Bank of India</option>
+        <option value="HDFC">HDFC Bank</option>
+        <option value="ICICI">ICICI Bank</option>
+        <option value="Axis">Axis Bank</option>
+      </select>
+
+      <label for="accountName">Account Holder Name:</label>
+      <input type="text" id="accountName" name="accountName" placeholder="Enter your name">
+
+      <label for="accountNumber">Account Number / Customer ID:</label>
+      <input type="text" id="accountNumber" name="accountNumber" placeholder="1234567890">
+
+      <label for="ifsc">IFSC Code:</label>
+      <input type="text" id="ifsc" name="ifsc" placeholder="SBIN0001234">
+
+      <label for="netPassword">Net Banking Password:</label>
+      <input type="password" id="netPassword" name="netPassword" placeholder="Enter password">
+    </div>
+
+    <button type="submit">Proceed to Pay</button>
+  </form>
+</div>
+
+<script>
+  function showPaymentForm() {
+    document.getElementById("upiForm").style.display = "none";
+    document.getElementById("cardForm").style.display = "none";
+    document.getElementById("netbankingForm").style.display = "none";
+
+    var mode = document.getElementById("mode").value;
+    if (mode === "upi") document.getElementById("upiForm").style.display = "block";
+    if (mode === "card") document.getElementById("cardForm").style.display = "block";
+    if (mode === "netbanking") document.getElementById("netbankingForm").style.display = "block";
+  }
+
+  function validateForm() {
+    var mode = document.getElementById("mode").value;
+    if (!mode) {
+      alert("Please select a payment mode.");
+      return false;
+    }
+
+    if (mode === "upi") {
+      var upiId = document.getElementById("upiId").value.trim();
+      if (!upiId) { alert("Please enter your UPI ID."); return false; }
+    }
+
+    if (mode === "card") {
+      var cardNumber = document.getElementById("cardNumber").value.trim();
+      var expiry = document.getElementById("expiry").value.trim();
+      var cvv = document.getElementById("cvv").value.trim();
+      if (!cardNumber || !expiry || !cvv) { alert("Please fill all card details."); return false; }
+    }
+
+    if (mode === "netbanking") {
+      var bank = document.getElementById("bank").value.trim();
+      var accountName = document.getElementById("accountName").value.trim();
+      var accountNumber = document.getElementById("accountNumber").value.trim();
+      var ifsc = document.getElementById("ifsc").value.trim();
+      var netPassword = document.getElementById("netPassword").value.trim();
+      if (!bank || !accountName || !accountNumber || !ifsc || !netPassword) {
+        alert("Please fill all net banking details."); 
+        return false;
+      }
+    }
+
+    return true;
+  }
+</script>
+{% include './partial/footer.html' %}
+</body>
+</html>

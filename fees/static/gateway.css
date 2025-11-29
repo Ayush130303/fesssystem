@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  padding: 20px;
+}
+
+.form-container {
+  background-color: #1e1e1e; /* Dark card */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+h2 {
+  text-align: center;
+  color: #ffffff;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #b0b0b0;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #6200ee; /* Accent color */
+  background-color: #333;
+}
+
+button {
+  background-color: #6200ee; /* Purple accent */
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  border: none;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+.payment-method-form {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+}
